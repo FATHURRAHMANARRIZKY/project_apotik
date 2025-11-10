@@ -30,7 +30,7 @@ total_pendapatan = 0
 menu = ""
 while menu != "7":
     print("=" * 60)
-    print("      🌿 APOTEK GIRSANG - LAYANAN & PENJUALAN 🌿")
+    print("\t\tAPOTEK GIRSANG - LAYANAN & PENJUALAN")
     print("=" * 60)
     print("1. Konsultasi Obat")
     print("2. Penjualan Obat")
