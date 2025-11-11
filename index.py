@@ -64,9 +64,16 @@ while menu != "7":
             if k[0] == kode:
                 status = input("Apakah Member? (y/n): ")
                 total = k[2]
-                if status == "y":
-                    total = total - (total * 0.1)
-                    print("Diskon member 10% diterapkan.")
+                diskon = 0
+
+                if status == "y" and total >= 100000:
+                    diskon = total * 0.1
+                    print("Diskon member 10% diterapkan (≥100.000).")
+                elif status == "n" and total >= 200000:
+                    diskon = total * 0.1
+                    print("Diskon 10% diterapkan untuk non-member (≥200.000).")
+
+                total -= diskon
                 transaksi.append([nama, k[1], 1, total])
                 total_pendapatan += total
 
@@ -74,14 +81,13 @@ while menu != "7":
                 print("           STRUK KONSULTASI        ")
                 print("===================================")
                 print("Nama Pasien :", nama)
-                print("Umur         :", umur)
                 print("Keluhan      :", keluhan)
                 print("Layanan      :", k[1])
-                print("Total Bayar  : Rp", total)
+                print("Diskon       : Rp", int(diskon))
+                print("Total Bayar  : Rp", int(total))
                 print("===================================")
-                print("Terima kasih telah berkunjung!\n\n")
-                print("Tekan 0 untuk kembali ke menu utama.")
-                kembali = input(">> ")
+                print("Terima kasih telah berkonsultasi!\n")
+                input("Tekan 0 untuk kembali ke menu utama...")
                 ditemukan = 1
                 break
         if ditemukan == 0:
@@ -106,13 +112,16 @@ while menu != "7":
                     print("Stok tidak cukup! Sisa stok:", o[3])
                 else:
                     total = jumlah * o[2]
-                    if total > 100000:
-                        print("Diskon 5% untuk pembelian di atas Rp100.000")
-                        total = total - (total * 0.05)
-                    if status == "y":
-                        print("Diskon member 10% diterapkan.")
-                        total = total - (total * 0.1)
+                    diskon = 0
 
+                    if status == "y" and total >= 100000:
+                        diskon = total * 0.1
+                        print("Diskon member 10% diterapkan (≥100.000).")
+                    elif status == "n" and total >= 200000:
+                        diskon = total * 0.1
+                        print("Diskon 10% untuk non-member (≥200.000).")
+
+                    total -= diskon
                     o[3] -= jumlah
                     transaksi.append([nama, o[1], jumlah, total])
                     total_pendapatan += total
@@ -123,12 +132,14 @@ while menu != "7":
                     print("Nama Pembeli :", nama)
                     print("Obat Dibeli  :", o[1])
                     print("Jumlah       :", jumlah)
-                    print("Total Bayar  : Rp", total)
+                    print("Harga Satuan :", o[2])
+                    print("Diskon       : Rp", int(diskon))
+                    print("Total Bayar  : Rp", int(total))
                     print("Sisa Stok    :", o[3])
                     print("===================================")
-                    print("Terima kasih telah berbelanja!\n\n")
-                    print("Tekan 0 untuk kembali ke menu utama.")
-                    kembali = input(">> ")
+                    print("Terima kasih telah berbelanja!\n")
+                    input("Tekan 0 untuk kembali ke menu utama...")
+
                 ditemukan = 1
                 break
         if ditemukan == 0:
@@ -156,9 +167,16 @@ while menu != "7":
             if l[0] == kode:
                 status = input("Apakah Member? (y/n): ")
                 total = l[2]
-                if status == "y":
-                    total = total - (total * 0.1)
-                    print("Diskon member 10% diterapkan.")
+                diskon = 0
+
+                if status == "y" and total >= 100000:
+                    diskon = total * 0.1
+                    print("Diskon member 10% diterapkan (≥100.000).")
+                elif status == "n" and total >= 200000:
+                    diskon = total * 0.1
+                    print("Diskon 10% untuk non-member (≥200.000).")
+
+                total -= diskon
                 transaksi.append([nama, l[1], 1, total])
                 total_pendapatan += total
 
@@ -166,13 +184,12 @@ while menu != "7":
                 print("         STRUK PEMERIKSAAN         ")
                 print("===================================")
                 print("Nama Pasien :", nama)
-                print("Umur         :", umur)
                 print("Layanan      :", l[1])
-                print("Total Bayar  : Rp", total)
+                print("Diskon       : Rp", int(diskon))
+                print("Total Bayar  : Rp", int(total))
                 print("===================================")
-                print("Terima kasih telah menggunakan layanan!\n\n")
-                print("Tekan 0 untuk kembali ke menu utama.")
-                kembali = input(">> ")
+                print("Terima kasih telah menggunakan layanan!\n")
+                input("Tekan 0 untuk kembali ke menu utama...")
                 ditemukan = 1
                 break
         if ditemukan == 0:
@@ -200,9 +217,16 @@ while menu != "7":
             if v[0] == kode:
                 status = input("Apakah Member? (y/n): ")
                 total = v[2]
-                if status == "y":
-                    total = total - (total * 0.1)
-                    print("Diskon member 10% diterapkan.")
+                diskon = 0
+
+                if status == "y" and total >= 100000:
+                    diskon = total * 0.1
+                    print("Diskon member 10% diterapkan (≥100.000).")
+                elif status == "n" and total >= 200000:
+                    diskon = total * 0.1
+                    print("Diskon 10% untuk non-member (≥200.000).")
+
+                total -= diskon
                 transaksi.append([nama, v[1], 1, total])
                 total_pendapatan += total
 
@@ -210,13 +234,12 @@ while menu != "7":
                 print("           STRUK VAKSINASI         ")
                 print("===================================")
                 print("Nama Pasien :", nama)
-                print("Umur         :", umur)
                 print("Jenis Vaksin :", v[1])
-                print("Total Bayar  : Rp", total)
+                print("Diskon       : Rp", int(diskon))
+                print("Total Bayar  : Rp", int(total))
                 print("===================================")
-                print("Terima kasih telah vaksinasi di Apotek Girsang!\n\n")
-                print("Tekan 0 untuk kembali ke menu utama.")
-                kembali = input(">> ")
+                print("Terima kasih telah vaksinasi di Apotek Girsang!\n")
+                input("Tekan 0 untuk kembali ke menu utama...")
                 ditemukan = 1
                 break
         if ditemukan == 0:
