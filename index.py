@@ -2,25 +2,42 @@ obat = [
     ["OB001", "Paracetamol", 5000, 10],
     ["OB002", "Amoxicillin", 12000, 8],
     ["OB003", "Vitamin C", 8000, 15],
-    ["OB004", "OBH Combi", 10000, 5]
+    ["OB004", "OBH Combi", 10000, 5],
+    ["OB005", "Promag", 7000, 12],
+    ["OB006", "Bodrex", 6000, 20],
+    ["OB007", "Panadol Extra", 9000, 10],
+    ["OB008", "Antasida DOEN", 5000, 7],
+    ["OB009", "CTM\t", 4000, 25]
 ]
 
 layanan_kesehatan = [
-    ["LK001", "Cek Tekanan Darah", 15000],
-    ["LK002", "Cek Kolesterol", 25000],
-    ["LK003", "Konsultasi Dokter", 30000]
+    ["LK001", "Cek Tekanan Darah\t\t\t", 15000],
+    ["LK002", "Cek Kolesterol\t\t\t\t", 25000],
+    ["LK003", "Konsultasi Dokter\t\t\t", 30000],
+    ["LK004", "Cek Gula Darah\t\t\t\t", 20000],
+    ["LK005", "Cek Asam Urat\t\t\t\t", 18000],
+    ["LK006", "Cek Hemoglobin (HB)\t\t\t", 22000],
+    ["LK007", "Cek BMI (Berat & Tinggi Badan)\t\t", 10000]
 ]
 
 vaksinasi = [
-    ["V001", "Vaksin Influenza", 80000],
-    ["V002", "Vaksin Covid-19", 120000],
-    ["V003", "Vaksin Hepatitis", 100000]
+    ["V001", "Vaksin Influenza\t\t", 80000],
+    ["V002", "Vaksin Covid-19\t\t", 120000],
+    ["V003", "Vaksin Hepatitis\t\t", 100000],
+    ["V004", "Vaksin Tetanus\t\t\t", 90000],
+    ["V005", "Vaksin HPV\t\t\t", 150000],
+    ["V006", "Vaksin Rabies\t\t\t", 110000],
+    ["V007", "Vaksin MR (Campak Rubella)\t", 95000]
 ]
 
 konsultasi = [
     ["K001", "Konsultasi Obat Ringan", 10000],
     ["K002", "Konsultasi Obat Kronis", 20000],
-    ["K003", "Konsultasi Anak", 15000]
+    ["K003", "Konsultasi Anak\t", 15000],
+    ["K004", "Konsultasi Ibu Hamil\t", 25000],
+    ["K005", "Konsultasi Gizi & Nutrisi", 30000],
+    ["K006", "Konsultasi Kesehatan Mental", 35000],
+    ["K007", "Konsultasi Lansia\t", 20000]
 ]
 
 transaksi = []
@@ -43,7 +60,7 @@ while menu != "7":
     menu = input("Pilih menu: ")
 
     if menu == "1":
-        print("\n=== INPUT DATA PASIEN ===")
+        print("\n","="*10,"INPUT DATA PASIEN","="*10)
         nama = input("Nama Pasien: ")
         umur = input("Umur: ")
         jenis_kelamin = input("Jenis Kelamin (L/P): ")
@@ -51,8 +68,9 @@ while menu != "7":
         berat = input("Berat Badan (kg): ")
         tinggi = input("Tinggi Badan (cm): ")
         pasien_list.append([nama, umur, jenis_kelamin, keluhan, berat, tinggi])
-
-        print("\n=== LAYANAN KONSULTASI ===")
+        
+        print("\n")
+        print("     ","="*10,"LAYANAN KONSULTASI","="*10)
         print("Kode\tNama Layanan\t\tHarga")
         print("-" * 50)
         for k in konsultasi:
@@ -76,25 +94,27 @@ while menu != "7":
                 total -= diskon
                 transaksi.append([nama, k[1], 1, total])
                 total_pendapatan += total
-
-                print("\n===================================")
-                print("           STRUK KONSULTASI        ")
-                print("===================================")
-                print("Nama Pasien :", nama)
+                print("\n")
+                print("="*50)
+                print("\t\tSTRUK KONSULTASI")
+                print("="*50)
+                print("Nama Pasien  :", nama)
                 print("Keluhan      :", keluhan)
                 print("Layanan      :", k[1])
                 print("Diskon       : Rp", int(diskon))
                 print("Total Bayar  : Rp", int(total))
-                print("===================================")
+                print("\n","="*50)
                 print("Terima kasih telah berkonsultasi!\n")
-                input("Tekan 0 untuk kembali ke menu utama...")
+                print("Tekan 0 untuk kembali ke menu utama...")
+                input(">> ")
                 ditemukan = 1
                 break
         if ditemukan == 0:
             print("Kode konsultasi tidak ditemukan.")
 
     elif menu == "2":
-        print("\n=== PENJUALAN OBAT ===")
+        print("\n")
+        print("     ","="*10,"PENJUALAN OBAT","="*10)
         print("Kode\tNama Obat\t\tHarga\tStok")
         print("-" * 50)
         for o in obat:
@@ -125,10 +145,11 @@ while menu != "7":
                     o[3] -= jumlah
                     transaksi.append([nama, o[1], jumlah, total])
                     total_pendapatan += total
-
-                    print("\n===================================")
-                    print("            STRUK PEMBELIAN        ")
-                    print("===================================")
+                    
+                    print("\n")
+                    print("="*50)
+                    print("\t\tSTRUK PEMBELIAN OBAT")
+                    print("="*50)
                     print("Nama Pembeli :", nama)
                     print("Obat Dibeli  :", o[1])
                     print("Jumlah       :", jumlah)
@@ -136,9 +157,10 @@ while menu != "7":
                     print("Diskon       : Rp", int(diskon))
                     print("Total Bayar  : Rp", int(total))
                     print("Sisa Stok    :", o[3])
-                    print("===================================")
+                    print("="*50)
                     print("Terima kasih telah berbelanja!\n")
-                    input("Tekan 0 untuk kembali ke menu utama...")
+                    print("Tekan 0 untuk kembali ke menu utama...")
+                input(">> ")
 
                 ditemukan = 1
                 break
@@ -146,7 +168,8 @@ while menu != "7":
             print("Kode obat tidak ditemukan.")
 
     elif menu == "3":
-        print("\n=== INPUT DATA PASIEN ===")
+        print("\n")
+        print("\t","="*10,"INPUT DATA PASIEN","="*10)
         nama = input("Nama Pasien: ")
         umur = input("Umur: ")
         jenis_kelamin = input("Jenis Kelamin (L/P): ")
@@ -155,11 +178,11 @@ while menu != "7":
         tinggi = input("Tinggi Badan (cm): ")
         pasien_list.append([nama, umur, jenis_kelamin, keluhan, berat, tinggi])
 
-        print("\n=== LAYANAN KESEHATAN ===")
-        print("Kode\tNama Pemeriksaan\t\tHarga")
-        print("-" * 50)
+        print("\n","="*10,"LAYANAN KESEHATAN","="*10)
+        print("Kode\tNama Pemeriksaan\t\t\tHarga")
+        print("-" * 56)
         for l in layanan_kesehatan:
-            print(l[0], "\t", l[1], "\t\t", l[2])
+            print(l[0], "\t", l[1], l[2])
         kode = input("\nMasukkan kode layanan: ")
 
         ditemukan = 0
@@ -180,23 +203,25 @@ while menu != "7":
                 transaksi.append([nama, l[1], 1, total])
                 total_pendapatan += total
 
-                print("\n===================================")
-                print("         STRUK PEMERIKSAAN         ")
-                print("===================================")
-                print("Nama Pasien :", nama)
+                print("\n","="*50)
+                print("\t\tSTRUK PEMERIKSAAN")
+                print("="*50)
+                print("Nama Pasien  :", nama)
                 print("Layanan      :", l[1])
                 print("Diskon       : Rp", int(diskon))
                 print("Total Bayar  : Rp", int(total))
-                print("===================================")
+                print("="*50)
                 print("Terima kasih telah menggunakan layanan!\n")
-                input("Tekan 0 untuk kembali ke menu utama...")
+                print("Tekan 0 untuk kembali ke menu utama...")
+                input(">> ")
                 ditemukan = 1
                 break
         if ditemukan == 0:
             print("Kode layanan tidak ditemukan.")
 
     elif menu == "4":
-        print("\n=== INPUT DATA PASIEN ===")
+        print("\n")
+        print("     ","="*10,"INPUT DATA PASIEN","="*10)
         nama = input("Nama Pasien: ")
         umur = input("Umur: ")
         jenis_kelamin = input("Jenis Kelamin (L/P): ")
@@ -205,11 +230,11 @@ while menu != "7":
         tinggi = input("Tinggi Badan (cm): ")
         pasien_list.append([nama, umur, jenis_kelamin, keluhan, berat, tinggi])
 
-        print("\n=== LAYANAN VAKSINASI ===")
-        print("Kode\tJenis Vaksin\t\tHarga")
+        print("\n","="*10,"LAYANAN VAKSINASI","="*10)
+        print("Kode\tJenis Vaksin\t\t\tHarga")
         print("-" * 50)
         for v in vaksinasi:
-            print(v[0], "\t", v[1], "\t\t", v[2])
+            print(v[0], "\t", v[1], v[2])
         kode = input("\nMasukkan kode vaksin: ")
 
         ditemukan = 0
@@ -230,27 +255,28 @@ while menu != "7":
                 transaksi.append([nama, v[1], 1, total])
                 total_pendapatan += total
 
-                print("\n===================================")
-                print("           STRUK VAKSINASI         ")
-                print("===================================")
-                print("Nama Pasien :", nama)
+                print("\n","="*50)
+                print("\t\tSTRUK VAKSINASI")
+                print("="*50)
+                print("Nama Pasien  :", nama)
                 print("Jenis Vaksin :", v[1])
                 print("Diskon       : Rp", int(diskon))
                 print("Total Bayar  : Rp", int(total))
-                print("===================================")
+                print("="*50)
                 print("Terima kasih telah vaksinasi di Apotek Girsang!\n")
-                input("Tekan 0 untuk kembali ke menu utama...")
+                print("Tekan 0 untuk kembali ke menu utama...")
+                input(">> ")
                 ditemukan = 1
                 break
         if ditemukan == 0:
             print("Kode vaksin tidak ditemukan.")
 
     elif menu == "5":
-        print("\n=== LAPORAN TRANSAKSI & DATA PASIEN ===")
+        print("\n","="*10,"LAPORAN TRANSAKSI & DATA PASIEN","="*10)
         print("-" * 60)
         print("Nama\t\tLayanan/Obat\t\tJumlah\tTotal")
         for t in transaksi:
-            print(t[0], "\t", t[1], "\t", t[2], "\tRp", t[3])
+            print(t[0], "\t", t[1], t[2], "\tRp", t[3])
         print("-" * 60)
         print("Total Pendapatan Hari Ini: Rp", total_pendapatan)
         print("-" * 60)
@@ -259,7 +285,7 @@ while menu != "7":
             print("-", p[0], "(", p[1], "th ) |", p[3], "|", p[4], "kg /", p[5], "cm")
 
     elif menu == "6":
-        print("\n=== CEK / TAMBAH STOK OBAT ===")
+        print("\n","="*10,"CEK / TAMBAH STOK OBAT","="*10)
         print("Kode\tNama Obat\tStok")
         print("-" * 40)
         for o in obat:
@@ -278,9 +304,10 @@ while menu != "7":
                     break
             if ditemukan == 0:
                 print("Kode obat tidak ditemukan.")
+        print("\n")
 
     elif menu == "7":
-        print("\n=== TERIMA KASIH ===")
+        print("\n","="*10,"TERIMA KASIH","="*10)
         print("Total pendapatan hari ini: Rp", total_pendapatan)
         print("Sampai jumpa kembali!\n")
 
