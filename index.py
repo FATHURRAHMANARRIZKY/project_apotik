@@ -84,12 +84,12 @@ while menu != "7":
                 total = k[2]
                 diskon = 0
 
-                if status == "y" and total >= 100000:
+                if status == "y" and total >= 30000:
                     diskon = total * 0.1
-                    print("Diskon member 10% diterapkan (≥100.000).")
-                elif status == "n" and total >= 200000:
+                    print("Diskon member 10% diterapkan.")
+                elif status == "n" and total >= 50000:
                     diskon = total * 0.1
-                    print("Diskon 10% diterapkan untuk non-member (≥200.000).")
+                    print("Diskon 10% diterapkan untuk non-member.")
 
                 total -= diskon
                 transaksi.append([nama, k[1], 1, total])
@@ -134,12 +134,12 @@ while menu != "7":
                     total = jumlah * o[2]
                     diskon = 0
 
-                    if status == "y" and total >= 100000:
+                    if status == "y" and total >= 15000:
                         diskon = total * 0.1
-                        print("Diskon member 10% diterapkan (≥100.000).")
-                    elif status == "n" and total >= 200000:
+                        print("Diskon member 10% diterapkan.")
+                    elif status == "n" and total >= 30000:
                         diskon = total * 0.1
-                        print("Diskon 10% untuk non-member (≥200.000).")
+                        print("Diskon 10% untuk non-member.")
 
                     total -= diskon
                     o[3] -= jumlah
@@ -192,12 +192,12 @@ while menu != "7":
                 total = l[2]
                 diskon = 0
 
-                if status == "y" and total >= 100000:
+                if status == "y" and total >= 40000:
                     diskon = total * 0.1
-                    print("Diskon member 10% diterapkan (≥100.000).")
-                elif status == "n" and total >= 200000:
+                    print("Diskon member 10% diterapkan.")
+                elif status == "n" and total >= 60000:
                     diskon = total * 0.1
-                    print("Diskon 10% untuk non-member (≥200.000).")
+                    print("Diskon 10% untuk non-member.")
 
                 total -= diskon
                 transaksi.append([nama, l[1], 1, total])
@@ -246,10 +246,10 @@ while menu != "7":
 
                 if status == "y" and total >= 100000:
                     diskon = total * 0.1
-                    print("Diskon member 10% diterapkan (≥100.000).")
-                elif status == "n" and total >= 200000:
+                    print("Diskon member 10% diterapkan.")
+                elif status == "n" and total >= 125000:
                     diskon = total * 0.1
-                    print("Diskon 10% untuk non-member (≥200.000).")
+                    print("Diskon 10% untuk non-member.")
 
                 total -= diskon
                 transaksi.append([nama, v[1], 1, total])
