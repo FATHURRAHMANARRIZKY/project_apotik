@@ -283,6 +283,9 @@ while menu != "7":
         print("\nData Pasien:")
         for p in pasien_list:
             print("-", p[0], "(", p[1], "th ) |", p[3], "|", p[4], "kg /", p[5], "cm")
+        print("\n\t\t\t Tekan 0 untuk kembali ke menu utama...")
+        input("\t\t\t >> ")
+        print("\n")
 
     elif menu == "6":
         print("\n","="*10,"CEK / TAMBAH STOK OBAT","="*10)
@@ -312,4 +315,5 @@ while menu != "7":
         print("Sampai jumpa kembali!\n")
 
     else:
+
         print("Pilihan tidak valid, coba lagi!\n")
